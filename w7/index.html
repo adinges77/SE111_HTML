@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anton Dinges!">
+    <meta name="description" content="Week 7 Assignment practicing Javascript & HTML">
+    <title>Pay Form Calculator Assignment</title>
+</head>
+<body>
+
+    
+    <h1> Pay Calculator Assignment </h1>
+
+
+    <form>
+        <label for="first">First Name: </label>
+        <input type="text" id="first name">
+
+        <br>
+
+        <label for="last">Last Name: </label>
+        <input type="text" id="last name">
+
+        <br>
+
+        <label for="hours">Hours Worked: </label>
+        <input type="text" id="Hours worked">
+
+        <br>
+
+        <label for="rate">Hourly Rate: </label>
+        <input type="text" id="Hourly Rate">
+
+        <br>
+
+        <br>
+
+
+        <br>
+        <br>
+
+        <div id="final" style="border:1px solid rgb(86, 86, 87); padding:15px; background-color:rgb(168, 168, 168);">
+
+            <h3>Employee Info: </h3>
+            <p id="info" style="font-family:Courier New, monospace;"><i>Information will be loaded once above form is filled.</i></p>
+
+            <p id="check" style="font-family:Courier New, monospace; width:220px; text-align:right;"></p>
+        </div>
+
+        <br>
+        <br>
+
+        <h3><i>If the above information is correct, please press "SUBMIT"</i></h3>
+        <input type="button" id="submit" value="SUBMIT
+        ">
+    </form>
+
+    <script>
+        //edit the below statement to select the #enter-button id from the HTML file
+
+        function alertName(e)
+        {
+
+            var fname = document.querySelector(`#first`).value
+            var lname = document.querySelector(`#last`).value
+            var hours = document.querySelector(`#hours`).value
+            var rate = document.querySelector(`#rate`).value
+
+            console.log(fname)
+            console.log(lname)
+            console.log(hours)
+            console.log(rate)
+
+            var full = fname + " " + lname
+
+            console.log(full)
+
+            var gross = hours * rate
+            var taxAmount = gross *.2
+            var net = gross - taxAmount
+
+            console.log(gross.toFixed(2))
+            console.log(taxAmount.toFixed(2))
+            console.log(net.toFixed(2))
+
+            var finalMessage = `full name: ${full}<br> hours worked: ${hours.toFixed(2)}<br> hourly rate:${rate.toFixed}`
+
+            var info = document.querySecelctor(`#info`)
+
+            var num = document.querySelector(`#check`) 
+
+
+            info.innerHTML = finalMessage
+
+            
+            num.innerHTML = `gross pay: ${gross_pay.toFixed(2)}<br> tax amount: ${tax_amount.toFixed(2)}<br> net pay: ${net_pay.toFixed(2)}`
+
+            document.querySelector(`#submit`).addEventListener(`click`, submitNow)
+        
+            function submitNow(e)
+            {
+
+
+                alert(`${full}\nHOURS: ${hours}\nRATE: $${rate.toFixed(2)}\n\nGROSS PAY: $${gross.toFixed(2)}\nTAX AMOUNT: $${taxAmount.toFixed(2)}\nNET PAY: $${net.toFixed(2)}`)
+            }
+            
+        }
+        
+    </script>
+    
+</body>
+</html>
